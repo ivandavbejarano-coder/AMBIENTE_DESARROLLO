@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PASO CIRCULAR — Negro de humo recuperado para prótesis de miembro inferior · UAO 2026</title>
+<meta name="description" content="Presentación digital del trabajo de grado UAO 2026: aprovechamiento de negro de humo recuperado por pirólisis de llantas usadas (caso Pyrum Innovations AG) para prótesis biomédicas, con visor 3D interactivo del encaje transtibial modelado en CAD.">
+<style>
+:root{
+  --verde:#0C6632; --verde2:#8CBF94; --verde3:#DEEFDF; --tinta:#0b0f0c; --gris:#5c6a60;
+  --carbon:#101416; --carbon2:#1a2124; --linea:#dfe7e1; --papel:#ffffff; --ambar:#C55A11;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.55 "Segoe UI",system-ui,-apple-system,Arial,sans-serif;color:var(--tinta);background:var(--papel)}
+h1,h2,h3,h4{font-weight:800;text-transform:uppercase;line-height:1.08;letter-spacing:.2px;margin:0}
+h1{font-size:clamp(34px,6vw,76px)} h2{font-size:clamp(26px,4.4vw,52px)} h3{font-size:clamp(19px,2.2vw,26px)}
+em{font-style:italic}
+a{color:var(--verde)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.nav{display:flex;align-items:center;gap:18px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde)}
+.brand svg{width:34px;height:34px}
+.brand b{font-size:17px;letter-spacing:1.5px;font-weight:800}
+.brand small{display:block;font-size:10px;letter-spacing:2.4px;color:var(--gris);font-weight:600}
+nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+nav a{color:var(--tinta);text-decoration:none;font-size:12.5px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;padding:8px 9px;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{border-bottom-color:var(--verde);color:var(--verde)}
+.btn{display:inline-block;border:2px solid var(--tinta);border-radius:999px;background:#fff;color:var(--tinta);
+  font-weight:800;letter-spacing:1.2px;text-transform:uppercase;font-size:12.5px;padding:13px 26px;text-decoration:none;cursor:pointer;transition:.25s}
+.btn:hover{background:var(--verde2);border-color:var(--verde2)}
+.btn.dark{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.btn.dark:hover{background:var(--verde);border-color:var(--verde)}
+.btn.ghost{background:transparent}
+/* ---------- hero ---------- */
+.hero{padding:64px 0 40px;position:relative;overflow:hidden}
+.overline{display:inline-block;background:var(--verde3);color:var(--verde);border-radius:999px;padding:6px 16px;
+  font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px}
+.hero h1 span{color:var(--verde)}
+.hero .sub{font-size:clamp(16px,1.6vw,21px);max-width:760px;color:#22301f;margin:22px 0 30px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.collage{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.collage figure{margin:0;border-radius:12px;overflow:hidden;position:relative;background:#000}
+.collage img{width:100%;height:230px;object-fit:cover;display:block;transition:transform .8s;filter:saturate(.92)}
+.collage figure:hover img{transform:scale(1.06)}
+.collage figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;font-size:12px;padding:26px 12px 10px}
+/* ---------- secciones ---------- */
+section{padding:72px 0}
+section.alt{background:var(--verde3)}
+section.dark{background:var(--carbon);color:#e8efea}
+section.dark h2,section.dark h3{color:#fff}
+.lead{font-size:clamp(16px,1.5vw,19px);max-width:860px;color:#26332a;margin:18px 0 0}
+section.dark .lead{color:#c9d6cc}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:#fff;border:1px solid var(--linea);border-radius:12px;padding:22px}
+section.dark .card{background:var(--carbon2);border-color:#2c3639}
+.card .num{font-size:34px;font-weight:800;color:var(--verde)}
+section.dark .card .num{color:var(--verde2)}
+.card p{margin:8px 0 0;font-size:14px;color:var(--gris)}
+section.dark .card p{color:#a9b8ad}
+.paso{border-top:3px solid var(--verde);padding-top:14px}
+.paso b{display:block;font-size:12px;letter-spacing:2px;color:var(--verde);margin-bottom:6px}
+.paso h4{font-size:17px;margin-bottom:8px}
+.paso p{font-size:14px;color:var(--gris);margin:0}
+figure.f{margin:26px 0 0;text-align:center}
+figure.f img{max-width:100%;border-radius:12px;border:1px solid var(--linea)}
+figcaption{font-size:12.5px;color:var(--gris);margin-top:8px}
+/* ---------- chips de procedencia ---------- */
+.chip{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.8px;padding:3px 9px;border-radius:20px;margin:2px 4px 2px 0;text-transform:uppercase}
+.c-real{background:#e3f2e6;color:#1E7B34;border:1px solid #b7dcbf}
+.c-pyrum{background:#fdeee2;color:var(--ambar);border:1px solid #f0c9a8}
+.c-biblio{background:#e6eef7;color:#1F4E79;border:1px solid #bcd2e8}
+.c-teor{background:#f7e6e6;color:#B22222;border:1px solid #e3b6b6}
+.leyenda{border:1px dashed #b9c9bd;border-radius:12px;padding:16px 20px;font-size:13.5px;background:#fff}
+/* ---------- visor 3D ---------- */
+#visorbox{position:relative;border-radius:14px;overflow:hidden;background:radial-gradient(1200px 500px at 50% 0%,#233034,#0c1012 70%);height:min(72vh,640px);margin-top:26px}
+#visor3d{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#visor3d:active{cursor:grabbing}
+.vhud{position:absolute;left:14px;top:14px;display:flex;gap:8px;flex-wrap:wrap;max-width:70%}
+.vhud button,.vhud select{background:rgba(12,18,20,.72);color:#dfe9e2;border:1px solid #37454a;border-radius:999px;
+  padding:8px 14px;font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(4px)}
+.vhud button:hover{background:var(--verde);border-color:var(--verde);color:#fff}
+.vhud button.act{background:var(--verde2);border-color:var(--verde2);color:#08130c}
+.vinfo{position:absolute;right:14px;top:14px;width:270px;background:rgba(10,15,16,.82);border:1px solid #37454a;border-radius:12px;padding:14px 16px;font-size:12.5px;color:#cfdcd3;backdrop-filter:blur(4px)}
+.vinfo h4{font-size:12px;letter-spacing:1.6px;color:var(--verde2);margin-bottom:8px}
+.vinfo dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 10px}
+.vinfo dt{color:#8fa096} .vinfo dd{margin:0;color:#eef4ef;font-weight:600}
+.vload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9fb3a7;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.hotspot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--verde2);border:2px solid #08130c;cursor:pointer;transform:translate(-50%,-50%);box-shadow:0 0 0 6px rgba(140,191,148,.25)}
+.hotspot span{position:absolute;left:20px;top:-8px;white-space:nowrap;background:#0b120e;color:#dfe9e2;border:1px solid #37454a;border-radius:8px;padding:5px 10px;font-size:11px;display:none}
+.hotspot:hover span{display:block}
+/* ---------- tablas / gráficos ---------- */
+table{border-collapse:collapse;width:100%;font-size:13px;margin:16px 0;background:#fff}
+th,td{border:1px solid var(--linea);padding:7px 9px;text-align:left}
+th{background:var(--verde3);color:var(--verde)}
+canvas.g{width:100%;background:#fff;border:1px solid var(--linea);border-radius:10px}
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:14px 0}
+.calc label{font-size:11.5px;color:var(--gris);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.calc input{width:100%;padding:8px;border:1px solid var(--linea);border-radius:8px;font-size:14px}
+/* ---------- FAQ ---------- */
+details{border:2px solid var(--tinta);border-radius:12px;margin:10px 0;background:#fff}
+summary{cursor:pointer;padding:16px 20px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::after{content:"+";font-size:22px;font-weight:400;color:var(--verde)}
+details[open] summary::after{content:"–"}
+details p{padding:0 20px 18px;margin:0;font-size:14.5px;color:#26332a}
+/* ---------- descargas / footer ---------- */
+.desc a{display:inline-block;margin:5px 8px 5px 0;padding:10px 18px;border:2px solid var(--tinta);border-radius:999px;color:var(--tinta);text-decoration:none;font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;transition:.2s}
+.desc a:hover{background:var(--verde2)}
+footer{background:var(--carbon);color:#b9c8bd;padding:44px 0;font-size:13px}
+footer h4{color:#fff;font-size:13px;letter-spacing:2px;margin-bottom:10px}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+footer a{color:var(--verde2)}
+.reflist{font-size:13.5px} .reflist li{margin:7px 0}
+/* ---------- animaciones ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rev.in{opacity:1;transform:none}
+@keyframes subir{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero .overline{animation:subir .7s .05s both}
+.hero h1{animation:subir .8s .15s both}
+.hero .sub{animation:subir .8s .3s both}
+.hero .cta{animation:subir .8s .45s both}
+.collage figure{animation:subir .9s .55s both}
+.collage figure:nth-child(2){animation-delay:.7s}.collage figure:nth-child(3){animation-delay:.85s}
+@media (max-width:860px){.collage{grid-template-columns:1fr}.vinfo{display:none}.vhud{max-width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#0C6632" stroke-width="3.4"/><path d="M24 8a16 16 0 0 1 16 16" fill="none" stroke="#8CBF94" stroke-width="3.4" stroke-linecap="round"/><path d="M17 30c0-5 3-8 7-8s7 3 7 8-3 6-7 6-7-1-7-6z" fill="#0C6632"/><path d="M40 24l-4-3v6z" fill="#8CBF94"/></svg>
+      <span><b>PASO CIRCULAR</b><small>rCB · PYRUM · UAO 2026</small></span>
+    </a>
+    <nav id="nav">
+      <a href="#inicio">Inicio</a><a href="#problema">El problema</a><a href="#investigacion">La investigación</a>
+      <a href="#materiales">Materiales</a><a href="#modelo">Modelo 3D</a><a href="#resultados">Resultados</a>
+      <a href="#documentacion">Documentación</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <span class="overline">Trabajo de grado · Ingeniería Ambiental · Ingeniería Multimedia</span>
+    <h1>Convertimos llantas usadas en <span>material para prótesis</span>.</h1>
+    <p class="sub">O, dicho simplemente: <b>PASO CIRCULAR</b>. Investigamos el negro de humo recuperado por pirólisis de neumáticos fuera de uso —caso de estudio Pyrum Innovations AG— como carga funcional en polipropileno para componentes de prótesis transtibiales, y lo presentamos aquí con su modelo CAD explorable en 3D.</p>
+    <div class="cta">
+      <a class="btn dark" href="#investigacion">Explorar el proyecto</a>
+      <a class="btn" href="#modelo">Ver el modelo protésico</a>
+    </div>
+    <div class="collage">
+      <figure><img src="img/fig07_diagrama_flujo_pirolisis.png" alt="Diagrama de pirólisis"><figcaption>Termólisis: del granulado de caucho a sólido carbonoso, aceite y gas</figcaption></figure>
+      <figure><img src="img/vista_iso.png" alt="Encaje transtibial"><figcaption>Encaje transtibial modelado en CAD con medidas reales</figcaption></figure>
+      <figure><img src="img/gen_fig08_modulos.png" alt="Módulos del compuesto"><figcaption>Modelo micromecánico Halpin–Tsai del compuesto PP/rCB</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="problema">
+  <div class="wrap">
+    <span class="overline">El problema</span>
+    <h2>Gastadas, pero lejos de <em>terminar</em></h2>
+    <p class="lead">Cada neumático fuera de uso es un concentrado de caucho, negro de humo y acero. Cuando no existe una ruta de valorización material, ese contenido se pierde en acopios o se quema como combustible. Al mismo tiempo, los componentes estructurales de una prótesis de miembro inferior dependen de polímeros y cargas que hoy se producen casi siempre a partir de recursos vírgenes.</p>
+    <div class="grid g4" style="margin-top:30px">
+      <div class="card rev"><div class="num">≈23.000</div><p>t NFU/año de capacidad de diseño equivalente de la planta de Dillingen, según declaración del productor. <span class="chip c-pyrum">Pyrum</span></p></div>
+      <div class="card rev"><div class="num">3 × 5.000</div><p>reactores dimensionados para ≈5.000 t de granulado de caucho por año cada uno. <span class="chip c-pyrum">Pyrum</span></p></div>
+      <div class="card rev"><div class="num">40–45 %</div><p>rendimiento de fracción carbonosa sólida sobre granulado (rango declarado, no balance cerrado). <span class="chip c-pyrum">Pyrum</span></p></div>
+      <div class="card rev"><div class="num">65–85</div><p>m²/g de área BET indicativa del producto; no se mide de rutina ni se garantiza. <span class="chip c-pyrum">Pyrum</span></p></div>
+    </div>
+    <div class="grid g2" style="margin-top:26px">
+      <div class="card rev"><h3>Residuo sin ruta de alto valor</h3><p>En Colombia la gestión de NFU se rige por la Resolución 1326 de 2017 y la Ley 2169 de 2021, pero la valorización material de alto valor sigue siendo marginal frente a la energética. <span class="chip c-biblio">Bibliográfica</span></p></div>
+      <div class="card rev"><h3>Prótesis que dependen de material virgen</h3><p>Los encajes transtibiales externos se fabrican con termoplásticos y compuestos cuya carga suele ser negro de humo virgen; sustituirla por rCB es la hipótesis de trabajo de esta investigación. <span class="chip c-teor">Escenario teórico</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="investigacion">
+  <div class="wrap">
+    <span class="overline">La investigación</span>
+    <h2>De la llanta usada al <em>material recuperado</em></h2>
+    <div class="grid g4" style="margin-top:28px">
+      <div class="paso rev"><b>Paso 01</b><h4>Recepción y trituración</h4><p>El NFU se tritura y se separa el acero y el textil; al reactor entra únicamente granulado de caucho, nunca el neumático entero. <span class="chip c-pyrum">Pyrum</span></p></div>
+      <div class="paso rev"><b>Paso 02</b><h4>Termólisis</h4><p>Descomposición térmica sin oxígeno que genera sólido carbonoso (40–45 %), aceite TPO/TTO (≈40 %) y gas (15–20 %) sobre granulado. <span class="chip c-pyrum">Pyrum</span></p></div>
+      <div class="paso rev"><b>Paso 03</b><h4>Procesamiento posterior</h4><p>El sólido se muele y peletiza como ThermoTireBlack®; el aceite se comercializa con registro REACH y declaración ISCC PLUS reportada. <span class="chip c-pyrum">Pyrum</span></p></div>
+      <div class="paso rev"><b>Paso 04</b><h4>Aplicación en polímeros</h4><p>La empresa declara ensayos satisfactorios en PP y PE sin detalle de formulación; la literatura sitúa el rango útil de incorporación entre 5 % y 15 % en peso. <span class="chip c-biblio">Bibliográfica</span></p></div>
+    </div>
+    <div class="grid g2" style="margin-top:30px">
+      <figure class="f rev"><img src="img/fig04_proceso_termolisis_pyrum.png" alt="Proceso de termólisis"><figcaption>Figura 1. Esquema del proceso de termólisis del caso de estudio.</figcaption></figure>
+      <figure class="f rev"><img src="img/gen_fig10_gwp.png" alt="GWP por escenario"><figcaption>Figura 2. GWP100 de los seis escenarios del modelo de ACV de 2022. <span class="chip c-teor">Escenario teórico</span></figcaption></figure>
+    </div>
+    <div class="leyenda" style="margin-top:30px">
+      <b>Cómo leer este sitio.</b> Cada cifra lleva su procedencia: <span class="chip c-real">Real / medida propia</span> cálculo o medición propia sobre archivos verificables · <span class="chip c-pyrum">Pyrum (productor)</span> declaración comercial indicativa, no garantizada · <span class="chip c-biblio">Bibliográfica</span> literatura o norma con DOI · <span class="chip c-teor">Escenario teórico</span> modelo o supuesto técnico. No se realizaron ensayos con muestras del material; los resultados de ACV son del modelo de 2022 y no se extrapolan a Colombia; el modelo CAD es académico, no un dispositivo clínico.
+    </div>
+  </div>
+</section>
+
+<section id="materiales">
+  <div class="wrap">
+    <span class="overline">Materiales y metodología</span>
+    <h2>Una matriz apolar y una carga que <em>hay que compatibilizar</em></h2>
+    <div class="grid g3" style="margin-top:28px">
+      <div class="card rev"><h3>Matriz: polipropileno</h3><p>Se seleccionó PP por su uso documentado en componentes protésicos y por ser la matriz en la que el productor declara ensayos con su producto; PE y PA6 quedaron como alternativas evaluadas. <span class="chip c-biblio">Bibliográfica</span></p></div>
+      <div class="card rev"><h3>Carga: ThermoTireBlack®</h3><p>Sólido carbonoso de pirólisis con cenizas y grupos oxigenados; BET 65–85 m²/g y STSA 50–70 m²/g indicativos. <span class="chip c-pyrum">Pyrum</span></p></div>
+      <div class="card rev"><h3>Compatibilizante: PP-g-MA</h3><p>Polipropileno injertado con anhídrido maleico, previsto en torno al 2 % en peso para mejorar la adhesión interfacial; su efecto no se midió en este proyecto. <span class="chip c-biblio">Bibliográfica</span> <span class="chip c-teor">Supuesto</span></p></div>
+    </div>
+    <h3 style="margin-top:40px">Procedimiento en ocho fases</h3>
+    <div class="grid g4" style="margin-top:16px">
+      <div class="paso rev"><b>Fase 1–2</b><h4>Literatura y auditoría</h4><p>Revisión sistemática con DOI verificados y matriz de trazabilidad D01–D24 de la información del productor.</p></div>
+      <div class="paso rev"><b>Fase 3–4</b><h4>Normativa y micromecánica</h4><p>Marco Alemania–Colombia y modelo Halpin–Tsai (ξ = 2) para 0, 5, 10 y 15 % en peso.</p></div>
+      <div class="paso rev"><b>Fase 5–6</b><h4>Sensibilidad y ACV</h4><p>Análisis de sensibilidad del modelo y análisis de los seis escenarios de ACV de 2022 (ISO 14040/14044).</p></div>
+      <div class="paso rev"><b>Fase 7–8</b><h4>CAD y multimedia</h4><p>Modelo paramétrico del encaje con comprobación analítica ISO 10328 y desarrollo de este sitio con visor 3D.</p></div>
+    </div>
+    <figure class="f rev"><img src="img/fig02_ruta_metodologica_hires.png" alt="Ruta metodológica"><figcaption>Figura 3. Ruta metodológica del trabajo de grado.</figcaption></figure>
+  </div>
+</section>
+
+<section class="dark" id="modelo">
+  <div class="wrap">
+    <span class="overline" style="background:#1e2a24;color:var(--verde2)">Modelo protésico 3D</span>
+    <h2>Encaje transtibial externo <em>explorable</em></h2>
+    <p class="lead">El mismo sólido B-rep verificado que se abre en SolidWorks, exportado a glTF binario (.glb) y renderizado aquí con iluminación y materiales. Arrastre para rotar, use la rueda o dos dedos para acercar, y active los modos para inspeccionar la geometría.</p>
+    <div id="visorbox">
+      <canvas id="visor3d"></canvas>
+      <div class="vload" id="vload">Cargando modelo glTF…</div>
+      <div class="vhud">
+        <button data-vista="iso" class="act">Isométrica</button>
+        <button data-vista="frontal">Frontal</button>
+        <button data-vista="lateral">Lateral</button>
+        <button data-vista="superior">Superior</button>
+        <button id="b-explode">Despiece</button>
+        <button id="b-corte">Corte</button>
+        <button id="b-wire">Aristas</button>
+        <button id="b-rot">Giro auto</button>
+        <button id="b-reset">Restablecer</button>
+        <select id="s-mat" title="Material del encaje">
+          <option value="0">PP virgen</option><option value="5">PP + 5 % TTB</option>
+          <option value="10" selected>PP + 10 % TTB</option><option value="15">PP + 15 % TTB</option>
+        </select>
+      </div>
+      <div class="vinfo">
+        <h4>Encaje_Transtibial_UAO</h4>
+        <dl>
+          <dt>Función</dt><dd>Transmitir carga del muñón al pilón</dd>
+          <dt>Boca ML / AP</dt><dd>114,9 / 95,0 mm</dd>
+          <dt>Profundidad útil</dt><dd>180 mm</dd>
+          <dt>Pared medida</dt><dd>5,0 – 8,4 mm</dd>
+          <dt>Flexión inicial</dt><dd>5°</dd>
+          <dt>Volumen</dt><dd>307,4 cm³</dd>
+          <dt>Masa (10 % TTB)</dt><dd id="masa">293 g</dd>
+          <dt>σ máx P6 / FS</dt><dd>2,94 MPa / 9,9</dd>
+          <dt>Triángulos</dt><dd id="tris">—</dd>
+        </dl>
+        <p style="margin:10px 0 0;font-size:11px;color:#8fa096">Diseño de referencia académico generado por script y verificado numéricamente. No es un dispositivo clínico validado. <span class="chip c-real">Medida propia</span> <span class="chip c-biblio">ISO 10328</span></p>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card rev"><h3>Geometría</h3><p>Secciones superelípticas con exponente 2,6→2,2, brim reforzado de 8 mm, barra patelar indentada 8 mm a 45 mm del borde y placa distal maciza de 12 mm. <span class="chip c-real">Medida propia</span></p></div>
+      <div class="card rev"><h3>Interfaz y pilón</h3><p>Interfaz piramidal normalizada 30 × 30 × 12 mm con 4 taladros M6 a 22 mm entre ejes, y pilón tubular Ø30 × 1,5 × 250 mm. <span class="chip c-biblio">Bibliográfica</span></p></div>
+      <div class="card rev"><h3>Comprobación</h3><p>Carga P6 de ISO 10328:2016 (1.500 N, e = 25 mm): σ máx 2,94 MPa frente a fluencia asumida de 28–33 MPa; el dimensionamiento lo gobiernan creep y fatiga, no la rotura estática. <span class="chip c-real">Cálculo propio</span></p></div>
+    </div>
+    <figure class="f rev"><img src="img/sw_vista_lateral.png" alt="Modelo abierto en SolidWorks" style="border-color:#2c3639"><figcaption>Figura 4. El sólido importado y abierto en SolidWorks 2026 SP5 (edición para estudiantes): captura real de pantalla de la pieza Encaje_Transtibial_UAO.SLDPRT con su árbol de características.</figcaption></figure>
+  </div>
+</section>
+
+<section id="resultados">
+  <div class="wrap">
+    <span class="overline">Resultados y conclusiones</span>
+    <h2>Lo que predice el modelo, <em>nada más</em></h2>
+    <div class="grid g2" style="margin-top:26px">
+      <div>
+        <h3>Calculadora micromecánica (Halpin–Tsai)</h3>
+        <div class="calc">
+          <div><label>Carga w (% peso)</label><input type="number" id="in-w" value="10" step="0.5" min="0" max="60"></div>
+          <div><label>E<sub>f</sub> (MPa)</label><input type="number" id="in-ef" value="12000" step="100"></div>
+          <div><label>E<sub>m</sub> (MPa)</label><input type="number" id="in-em" value="1350" step="10"></div>
+          <div><label>ρ<sub>f</sub> (g/cm³)</label><input type="number" id="in-rf" value="1.80" step="0.01"></div>
+          <div><label>ρ<sub>m</sub> (g/cm³)</label><input type="number" id="in-rm" value="0.905" step="0.005"></div>
+          <div><label>ξ</label><input type="number" id="in-xi" value="2" step="0.5" min="0.5"></div>
+        </div>
+        <div class="card"><div id="out-calc" style="font-size:14.5px"></div>
+        <p style="margin-top:8px">Valores del modelo; no son mediciones. <span class="chip c-teor">Escenario teórico</span></p></div>
+        <canvas class="g" id="graf-halpin" width="560" height="300" style="margin-top:14px"></canvas>
+      </div>
+      <div>
+        <h3>Escenarios de ACV (modelo 2022)</h3>
+        <table id="tabla-acv"><thead><tr><th>Escenario</th><th>GWP100 (kg CO₂-eq/t NFU)</th></tr></thead><tbody></tbody></table>
+        <canvas class="g" id="graf-acv" width="560" height="260"></canvas>
+        <p style="font-size:13px;color:var(--gris)">Resultados del modelo de 2022 con créditos por sustitución; no se extrapolan a Colombia. <span class="chip c-teor">Escenario teórico</span></p>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:30px">
+      <div>
+        <h3>Secciones del encaje (verificadas sobre el sólido)</h3>
+        <table id="tabla-secc"><thead><tr><th>z (mm)</th><th>Área (mm²)</th><th>Pared (mm)</th><th>I<sub>xx</sub> (mm⁴)</th><th>I<sub>yy</sub> (mm⁴)</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div>
+        <h3>Comprobación ISO 10328:2016</h3>
+        <table id="tabla-iso"><thead><tr><th>Nivel</th><th>F (N)</th><th>M (N·mm)</th><th>σ máx (MPa)</th><th>FS (10 % TTB)</th></tr></thead><tbody></tbody></table>
+        <h3 style="margin-top:26px">Conclusiones</h3>
+        <ul style="font-size:14px;color:#26332a">
+          <li>El rCB es técnicamente plausible como carga en PP: hasta +18,8 % de módulo y +9,9 % de módulo específico a 15 % en peso (modelo).</li>
+          <li>El desempeño ambiental depende de los créditos por sustitución: de −965 a +164 kg CO₂-eq/t NFU según escenario (modelo 2022).</li>
+          <li>El encaje modelado cumple con margen el criterio estático de ISO 10328 (FS 9,9 bajo P6); el reto real es creep y fatiga del PP.</li>
+          <li>La información del productor basta para viabilidad, no para diseño detallado: brechas documentadas, no suplidas con afirmaciones.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="documentacion">
+  <div class="wrap">
+    <span class="overline">Referencias y documentación</span>
+    <h2>Todo el proyecto, <em>descargable</em></h2>
+    <div class="desc" style="margin-top:22px">
+      <a href="descargas/TRABAJO_FINAL_PIROLISIS_RCB_PYRUM_2026.docx">Trabajo de grado DOCX</a>
+      <a href="descargas/TRABAJO_FINAL_PIROLISIS_RCB_PYRUM_2026.pdf">Trabajo de grado PDF</a>
+      <a href="descargas/TRABAJO_FINAL_PIROLISIS_RCB_PYRUM_2026_ACTUALIZADO_V2.docx">Documento definitivo V2 DOCX</a>
+      <a href="descargas/TRABAJO_FINAL_PIROLISIS_RCB_PYRUM_2026_ACTUALIZADO_V2.pdf">Documento definitivo V2 PDF</a>
+      <a href="INTEGRACION_CAD_WEB.md">Integración CAD-web</a>
+      <a href="descargas/MATRIZ_TRAZABILIDAD_DATOS_RCB_PYRUM.xlsx">Matriz de trazabilidad</a>
+      <a href="cad/Encaje_Transtibial_UAO.step">Sólido STEP</a>
+      <a href="cad/Encaje_Transtibial_UAO.glb">Modelo GLB (web)</a>
+      <a href="cad/Encaje_Transtibial_UAO.stl">Malla STL</a>
+      <a href="cad/Ensamble_Protesis_Transtibial.step">Ensamblado STEP</a>
+      <a href="cad/Encaje_Transtibial_UAO.FCStd">Modelo FreeCAD</a>
+      <a href="Plano_Encaje_Transtibial_UAO.pdf">Plano A3 PDF</a>
+      <a href="cad/Plano_Encaje_Transtibial_UAO.dxf">Plano DXF</a>
+      <a href="cad/SOLIDWORKS/macro_encaje_transtibial.bas">Macro SolidWorks</a>
+      <a href="cad/SOLIDWORKS/INSTRUCCIONES_SOLIDWORKS.md">Guía SolidWorks</a>
+      <a href="https://id07db.github.io/PIROLISIS/" target="_blank" rel="noopener">PolyComp Studio</a>
+    </div>
+    <h3 style="margin-top:34px">Preguntas frecuentes</h3>
+    <details><summary>¿El encaje mostrado es una prótesis validada clínicamente?</summary><p>No. Es un modelo de referencia académico generado por script con medidas antropométricas y normativas publicadas, verificado numéricamente y comprobado analíticamente frente a ISO 10328:2016. No se realizaron ensayos mecánicos ni validación clínica; cualquier uso real exigiría ensayo normalizado y prescripción profesional.</p></details>
+    <details><summary>¿Los datos de rendimiento y capacidades son medidos?</summary><p>Son declaraciones del productor (Pyrum Innovations AG): capacidades de diseño y rangos indicativos, no producción verificada ni balances cerrados. Se citan siempre con esa procedencia.</p></details>
+    <details><summary>¿Los resultados de ACV aplican a Colombia?</summary><p>No. Corresponden al modelo de 2022 del caso europeo y se presentan sin modificación; extrapolarlos requeriría datos primarios locales, que este proyecto no generó.</p></details>
+    <details><summary>¿Cómo se integró el modelo CAD con esta página?</summary><p>El B-rep paramétrico se exportó a STEP, se abrió en SolidWorks y se teseló desde el mismo modelo FreeCAD para escribir un archivo glTF binario (.glb) con tres nodos nombrados; el visor usa Three.js con OrbitControls, entorno PMREM y sombras. Los detalles están documentados en el trabajo de grado.</p></details>
+    <h3 style="margin-top:34px">Referencias seleccionadas (APA 7)</h3>
+    <ol class="reflist">
+      <li>Anupabphan, A., et al. (2025). <i>ACS Omega, 10</i>(37), 42451–42460. https://doi.org/10.1021/acsomega.5c02908</li>
+      <li>Campbell, J., et al. (2012). <i>Prosthetics and Orthotics International, 36</i>(2), 181–189. https://doi.org/10.1177/0309364611434568</li>
+      <li>Cardona-Uribe, N., et al. (2021). <i>Sustainable Materials and Technologies, 28</i>, e00287. https://doi.org/10.1016/j.susmat.2021.e00287</li>
+      <li>ISO. (2016). <i>ISO 10328:2016. External prostheses for the lower limbs — Requirements and test methods</i>.</li>
+      <li>Maga, D., Aryan, V., &amp; Blömer, J. (2022). <i>Life cycle assessment of pyrolysis of used tyres</i>. Fraunhofer UMSICHT.</li>
+      <li>Martínez, J. D., et al. (2013). <i>Renewable and Sustainable Energy Reviews, 23</i>, 179–213. https://doi.org/10.1016/j.rser.2013.02.038</li>
+      <li>Nagarajan, R., et al. (2024). <i>Prosthesis, 6</i>(3), 457–477. https://doi.org/10.3390/prosthesis6030033</li>
+      <li>Pyrum Innovations AG. (2026). <i>Respuesta técnica a solicitud académica</i>, 29 de septiembre de 2026 [Anexo B del trabajo de grado].</li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h4>PASO CIRCULAR</h4>
+      <p>Presentación digital del trabajo de grado «Aprovechamiento de negro de humo recuperado por pirólisis de llantas usadas para el desarrollo de prótesis biomédicas con apoyo de ingeniería multimedia».</p>
+    </div>
+    <div>
+      <h4>Equipo</h4>
+      <p>I. D. Bejarano Díaz · C. Cobo Jiménez · G. Gaitán Guerrero · A. F. Vargas<br>Dirección: M. L. Palacios Peñaranda, Bióloga – Ph. D. en Ciencias del Mar<br>Universidad Autónoma de Occidente, 2026</p>
+    </div>
+    <div>
+      <h4>Advertencias</h4>
+      <p>Datos Pyrum indicativos y no garantizados · ACV modelo 2022, sin extrapolación a Colombia · sin ensayos con muestras del material · modelo CAD académico, no clínico.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="datos.js"></script>
+<script src="cad/modelo_glb.js"></script>
+<script src="lib/three.min.js"></script>
+<script src="lib/OrbitControls.js"></script>
+<script src="lib/GLTFLoader.js"></script>
+<script src="lib/RoomEnvironment.js"></script>
+<script>
+/* ---------- datos: tablas, calculadora, gráficos ---------- */
+(function(){
+  var ta=document.querySelector('#tabla-acv tbody');
+  DATOS.acv.forEach(function(f,i){
+    ta.insertRow().innerHTML='<td>E'+(i+1)+'. '+f.esc+'</td><td style="text-align:right;font-weight:800;color:'+(f.gwp<0?'#1E7B34':'#B22222')+'">'+(f.gwp>0?'+':'')+f.gwp+'</td>';
+  });
+  var ts=document.querySelector('#tabla-secc tbody');
+  Object.keys(DATOS.secciones).forEach(function(k){
+    var s=DATOS.secciones[k];
+    ts.insertRow().innerHTML='<td>'+k+'</td><td>'+s.area_de_material_mm2+'</td><td>'+s.espesor_medio_de_pared_mm+'</td><td>'+s.Ixx_mm4_flexion_AP+'</td><td>'+s.Iyy_mm4_flexion_ML+'</td>';
+  });
+  var ti=document.querySelector('#tabla-iso tbody');
+  ['P5','P6'].forEach(function(n){var c=DATOS.comprobacion[n];
+    ti.insertRow().innerHTML='<td>'+n+'</td><td>'+c.carga_axial_N+'</td><td>'+c.momento_flector_Nmm+'</td><td><b>'+c.sigma_maxima_MPa+'</b></td><td><b>'+c.FS_PP_mas_10_pct_TTB+'</b></td>';});
+  function halpin(w,Ef,Em,rf,rm,xi){var Vf=(w/rf)/((w/rf)+((100-w)/rm));var eta=(Ef/Em-1)/(Ef/Em+xi);
+    return {Vf:Vf*100,Ec:Em*(1+xi*eta*Vf)/(1-eta*Vf),rho:1/((w/100)/rf+((100-w)/100)/rm)};}
+  function calc(){
+    var w=+document.getElementById('in-w').value,Ef=+document.getElementById('in-ef').value,Em=+document.getElementById('in-em').value,
+        rf=+document.getElementById('in-rf').value,rm=+document.getElementById('in-rm').value,xi=+document.getElementById('in-xi').value;
+    var r=halpin(w,Ef,Em,rf,rm,xi),b=halpin(0,Ef,Em,rf,rm,xi);
+    document.getElementById('out-calc').innerHTML='V<sub>f</sub> = <b>'+r.Vf.toFixed(2)+' %</b> · ρ<sub>c</sub> = <b>'+r.rho.toFixed(3)+
+      ' g/cm³</b><br>E<sub>c</sub> = <b>'+(r.Ec/1000).toFixed(3)+' GPa</b> ('+(((r.Ec/b.Ec)-1)*100).toFixed(2)+' % vs matriz) · E específico = <b>'+(r.Ec/1000/r.rho).toFixed(3)+' GPa·cm³/g</b>';
+    var c=document.getElementById('graf-halpin'),g=c.getContext('2d'),W=c.width,H=c.height;
+    g.clearRect(0,0,W,H);var pts=[],w2;for(w2=0;w2<=20;w2+=0.5)pts.push(halpin(w2,Ef,Em,rf,rm,xi).Ec/1000);
+    var mn=Math.min.apply(null,pts)*0.98,mx=Math.max.apply(null,pts)*1.02;
+    var X=function(v){return 46+(W-70)*v/20;},Y=function(v){return H-32-(H-58)*(v-mn)/(mx-mn);};
+    g.strokeStyle='#e4ece6';for(var k=0;k<=4;k++){var yy=28+k*(H-60)/4;g.beginPath();g.moveTo(46,yy);g.lineTo(W-24,yy);g.stroke();}
+    g.strokeStyle='#0C6632';g.lineWidth=2.6;g.beginPath();
+    pts.forEach(function(v,i){i?g.lineTo(X(i*0.5),Y(v)):g.moveTo(X(i*0.5),Y(v));});g.stroke();
+    g.fillStyle='#C55A11';[0,5,10,15].forEach(function(v3){var v4=halpin(v3,Ef,Em,rf,rm,xi).Ec/1000;
+      g.beginPath();g.arc(X(v3),Y(v4),4.5,0,7);g.fill();g.fillStyle='#333';g.font='11px Segoe UI';
+      g.fillText(v4.toFixed(3),X(v3)-14,Y(v4)-9);g.fillStyle='#C55A11';});
+    g.fillStyle='#5c6a60';g.font='12px Segoe UI';g.fillText('carga de TTB (% peso)',W/2-58,H-8);
+    g.fillText(mx.toFixed(2),6,32);g.fillText(mn.toFixed(2),6,H-28);
+  }
+  ['in-w','in-ef','in-em','in-rf','in-rm','in-xi'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+  calc();
+  var c2=document.getElementById('graf-acv'),g2=c2.getContext('2d'),W2=c2.width,H2=c2.height,d=DATOS.acv,bh=(H2-30)/d.length;
+  var mx2=Math.max.apply(null,d.map(function(f){return Math.abs(f.gwp);}))*1.15,x0=W2*0.6;
+  g2.strokeStyle='#9aa8a0';g2.beginPath();g2.moveTo(x0,8);g2.lineTo(x0,H2-20);g2.stroke();
+  d.forEach(function(f,i){var y=14+i*bh,wpx=(W2-250)*f.gwp/mx2;
+    g2.fillStyle=f.gwp<0?'#1E7B34':'#B22222';g2.fillRect(Math.min(x0,x0+wpx),y,Math.abs(wpx),bh*0.6);
+    g2.fillStyle='#333';g2.font='11.5px Segoe UI';g2.fillText('E'+(i+1),8,y+bh*0.42);
+    g2.fillText((f.gwp>0?'+':'')+f.gwp,x0+wpx+(wpx<0?-46:8),y+bh*0.42);});
+})();
+/* ---------- animaciones al desplazar ---------- */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+  document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function act(){var y=scrollY+140,k=0;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)k=i;});
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});}
+  addEventListener('scroll',act);act();
+})();
+/* ---------- visor 3D (Three.js r147 + GLB propio) ---------- */
+(function(){
+  var caja=document.getElementById('visorbox'),cv=document.getElementById('visor3d');
+  if(!window.THREE){document.getElementById('vload').textContent='Three.js no disponible';return;}
+  var renderer;
+  try{renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}
+  catch(e){document.getElementById('vload').textContent='WebGL no disponible en este equipo';return;}
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.localClippingEnabled=true;
+  var escena=new THREE.Scene();
+  var pmrem=new THREE.PMREMGenerator(renderer);
+  escena.environment=pmrem.fromScene(new THREE.RoomEnvironment(),0.04).texture;
+  var cam=new THREE.PerspectiveCamera(38,1,1,4000);
+  var ctrl=new THREE.OrbitControls(cam,cv);
+  ctrl.enableDamping=true;ctrl.dampingFactor=.08;ctrl.minDistance=120;ctrl.maxDistance=900;
+  var sol=new THREE.DirectionalLight(0xffffff,1.15);sol.position.set(220,-260,320);sol.castShadow=true;
+  sol.shadow.mapSize.set(2048,2048);sol.shadow.camera.left=-260;sol.shadow.camera.right=260;
+  sol.shadow.camera.top=260;sol.shadow.camera.bottom=-260;sol.shadow.bias=-0.0004;
+  escena.add(sol,new THREE.AmbientLight(0xbfd8c6,.35));
+  var suelo=new THREE.Mesh(new THREE.PlaneGeometry(1600,1600),new THREE.ShadowMaterial({opacity:.32}));
+  suelo.rotation.x=-Math.PI/2;suelo.receiveShadow=true;escena.add(suelo);
+  var plano=new THREE.Plane(new THREE.Vector3(0,-1,0),1e6);
+  var grupo=null,nodos={},orig={},tris=0,explo=0,exploObj=0,corte=false,wire=false,autoRot=true;
+  var MASAS={0:278,5:285,10:293,15:301},COLORES={0:0x3a4046,5:0x2b3136,10:0x1d2226,15:0x121619};
+  var bin=Uint8Array.from(atob(GLB_B64),function(c){return c.charCodeAt(0);}).buffer;
+  new THREE.GLTFLoader().parse(bin,'',function(g){
+    grupo=g.scene;
+    var box=new THREE.Box3().setFromObject(grupo),c=box.getCenter(new THREE.Vector3()),t=box.getSize(new THREE.Vector3());
+    grupo.traverse(function(o){if(o.isMesh){o.castShadow=true;o.receiveShadow=true;tris+=o.geometry.index?o.geometry.index.count/3:o.geometry.attributes.position.count/3;
+      o.material.clippingPlanes=[plano];o.material.clipShadows=true;}});
+    grupo.children.forEach(function(n){nodos[n.name]=n;orig[n.name]=n.position.clone();});
+    escena.add(grupo);
+    ctrl.target.copy(c);
+    suelo.position.y=box.min.y-2;
+    cam.position.set(c.x+330,c.y-300,c.z+380);
+    ctrl.update();
+    document.getElementById('vload').style.display='none';
+    document.getElementById('tris').textContent=Math.round(tris).toLocaleString('es-CO');
+    ponerMaterial(10);
+    /* puntos de interés */
+    [['Boca y brim reforzado',0,-40,8],['Barra patelar (indentación)',0,-52,-45],
+     ['Placa distal maciza 12 mm',0,-10,-162],['Interfaz piramidal 30×30',0,16,-186]].forEach(function(h){
+      var el=document.createElement('div');el.className='hotspot';el.innerHTML='<span>'+h[0]+'</span>';
+      el.dataset.p=h[1]+','+h[2]+','+h[3];caja.appendChild(el);});
+  },function(){document.getElementById('vload').textContent='No se pudo cargar el GLB';});
+  function ponerMaterial(w){
+    if(!nodos['Encaje_PP_rCB'])return;
+    nodos['Encaje_PP_rCB'].traverse(function(o){if(o.isMesh){o.material.color.setHex(COLORES[w]);
+      o.material.roughness=.55+w*0.006;o.material.needsUpdate=true;}});
+    document.getElementById('masa').textContent=MASAS[w]+' g';
+  }
+  document.getElementById('s-mat').onchange=function(){ponerMaterial(+this.value);};
+  var VISTAS={iso:[330,-300,380],frontal:[0,-60,520],lateral:[520,-60,0],superior:[0,-520,60]};
+  document.querySelectorAll('[data-vista]').forEach(function(b){
+    b.onclick=function(){document.querySelectorAll('[data-vista]').forEach(function(x){x.classList.remove('act');});
+      b.classList.add('act');var v=VISTAS[b.dataset.vista],c=ctrl.target;
+      cam.position.set(c.x+v[0],c.y+v[1],c.z+v[2]);ctrl.update();};});
+  document.getElementById('b-explode').onclick=function(){exploObj=exploObj?0:1;this.classList.toggle('act',!!exploObj);};
+  document.getElementById('b-corte').onclick=function(){corte=!corte;this.classList.toggle('act',corte);
+    plano.constant=corte?0:1e6;};
+  document.getElementById('b-wire').onclick=function(){wire=!wire;this.classList.toggle('act',wire);
+    if(grupo)grupo.traverse(function(o){if(o.isMesh)o.material.wireframe=wire;});};
+  document.getElementById('b-rot').onclick=function(){autoRot=!autoRot;this.classList.toggle('act',autoRot);};
+  document.getElementById('b-reset').onclick=function(){var c=ctrl.target;cam.position.set(c.x+330,c.y-300,c.z+380);
+    exploObj=0;corte=false;plano.constant=1e6;ctrl.update();};
+  function tam(){var w=caja.clientWidth,h=caja.clientHeight;
+    renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  addEventListener('resize',tam);tam();
+  var v=new THREE.Vector3();
+  (function loop(){
+    requestAnimationFrame(loop);
+    if(autoRot&&grupo)grupo.rotation.y+=0.0035;
+    explo+=(exploObj-explo)*0.12;
+    if(grupo){
+      if(nodos['Interfaz_piramidal'])nodos['Interfaz_piramidal'].position.copy(orig['Interfaz_piramidal']).add(new THREE.Vector3(0,0,-70*explo));
+      if(nodos['Pilon_tubular'])nodos['Pilon_tubular'].position.copy(orig['Pilon_tubular']).add(new THREE.Vector3(0,0,-150*explo));
+      document.querySelectorAll('.hotspot').forEach(function(el){
+        var p=el.dataset.p.split(',').map(Number);v.set(p[0],p[1],p[2]);
+        if(grupo.rotation.y){v.applyAxisAngle(new THREE.Vector3(0,1,0),grupo.rotation.y);}
+        v.project(cam);
+        el.style.left=((v.x*0.5+0.5)*caja.clientWidth)+'px';
+        el.style.top=((-v.y*0.5+0.5)*caja.clientHeight)+'px';
+        el.style.display=v.z<1?'block':'none';});
+    }
+    ctrl.update();renderer.render(escena,cam);
+  })();
+})();
+</script>
+</body>
+</html>
